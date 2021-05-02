@@ -1,5 +1,6 @@
 ## My solution
-To test the programe, compile all the java classes, execute the Main. You will see the test example for the three user stories.
+To test the programe, compile all the java classes, execute the Main "BankAccountApp.java".
+You will see the test example for the three user stories.
 
 I have started from defining an acceptance test:
 
