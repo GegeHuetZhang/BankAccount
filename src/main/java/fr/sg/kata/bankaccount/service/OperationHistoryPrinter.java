@@ -73,21 +73,35 @@ public class OperationHistoryPrinter {
     /**
      * This method create the transaction information to be showed on one history line.
      * @param operationHistoryLine {@link fr.sg.kata.bankaccount.entity.OperationHistoryLine}
-     * @return a string of operation date, credit, debit and current balance
+     * @return a string of operation date, credit or debit and current balance
      */
     private String createOperationHistoryLine(OperationHistoryLine operationHistoryLine) {
-        String historyLine;
-        if (CREDIT == operationHistoryLine.getOperation().getOperationType()) {
-            historyLine = getOperationDateField(operationHistoryLine)
-                    + SEPERATOR + getOperationAmountField(operationHistoryLine)
-                    + SEPERATOR + EMPTY_FIELD
-                    + SEPERATOR + getCurrentBalanceField(operationHistoryLine);
-        } else
-            historyLine = getOperationDateField(operationHistoryLine)
-                    + SEPERATOR + EMPTY_FIELD
-                    + SEPERATOR + getOperationAmountField(operationHistoryLine)
-                    + SEPERATOR + getCurrentBalanceField(operationHistoryLine);
-        return historyLine;
+        return CREDIT == operationHistoryLine.getOperation().getOperationType() ?
+                createDepositOperationHistoryLine(operationHistoryLine) :
+                createWithdrawOperationHistoryLine(operationHistoryLine);
+    }
+
+    /**
+     * This method create the deposit transaction information.
+     * @param operationHistoryLine {@link fr.sg.kata.bankaccount.entity.OperationHistoryLine}
+     * @return a string of operation date, credit and current balance
+     */
+    private String createDepositOperationHistoryLine(OperationHistoryLine operationHistoryLine) {
+        return getOperationDateField(operationHistoryLine)
+                + SEPERATOR + getOperationAmountField(operationHistoryLine)
+                + SEPERATOR + EMPTY_FIELD
+                + SEPERATOR + getCurrentBalanceField(operationHistoryLine);
+    }
+    /**
+     * This method create the withdraw transaction information.
+     * @param operationHistoryLine {@link fr.sg.kata.bankaccount.entity.OperationHistoryLine}
+     * @return a string of operation date, debit and current balance
+     */
+    private String createWithdrawOperationHistoryLine(OperationHistoryLine operationHistoryLine) {
+        return getOperationDateField(operationHistoryLine)
+                + SEPERATOR + EMPTY_FIELD
+                + SEPERATOR + getOperationAmountField(operationHistoryLine)
+                + SEPERATOR + getCurrentBalanceField(operationHistoryLine);
     }
 
     /**
