@@ -3,9 +3,7 @@ package fr.sg.kata.bankaccount.repository;
 import fr.sg.kata.bankaccount.entity.Operation;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.List;
-
 import static fr.sg.kata.bankaccount.utils.OperationType.CREDIT;
 import static fr.sg.kata.bankaccount.utils.OperationType.DEBIT;
 import static org.junit.Assert.*;
