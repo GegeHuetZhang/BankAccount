@@ -6,6 +6,9 @@ import lombok.Getter;
 
 import java.util.Date;
 
+/**
+ * This class represents the transaction of client on his account.
+ */
 @AllArgsConstructor
 @Getter
 public class Operation {
