@@ -14,14 +14,14 @@ import java.util.List;
 import static fr.sg.kata.bankaccount.service.OperationHistoryPrinter.OPERATION_HISTORY_HEADER;
 import static fr.sg.kata.bankaccount.utils.OperationType.CREDIT;
 import static fr.sg.kata.bankaccount.utils.OperationType.DEBIT;
-import static java.util.Collections.EMPTY_LIST;
+import static java.util.Collections.emptyList;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class OperationHistoryPrinterTest {
 
-    private static final List<Operation> NO_OPERATIONS = EMPTY_LIST;
+    private static final List<Operation> NO_OPERATIONS = emptyList();
     @Mock
     Console console;
 
